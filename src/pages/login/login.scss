@@ -1,0 +1,22 @@
+page-login {
+  text-align: center !important;
+  ion-grid{
+    background: #ff4a41;
+    color:white !important;
+    border:5px solid white;
+  }
+  .scroll-content{
+    margin-top: 20%;
+    overflow: hidden;
+  }
+  ion-item{
+    background: transparent !important;
+  }
+}
+
+.red{
+  >div{
+  background: #f6463e !important;
+  color: white;
+  }
+}

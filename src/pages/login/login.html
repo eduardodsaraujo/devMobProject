@@ -1,0 +1,24 @@
+<ion-grid style="height: 100%">
+
+  <ion-row justify-content-center align-items-center style="height: 100%">
+
+    <ion-list style="flex:1" padding>
+      <h1>Login</h1>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email" round></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <br>
+      <br>
+      <br>
+      <button ion-button color="danger" (click)="login(user)" round block>Entrar</button>
+
+    </ion-list>
+  </ion-row>
+</ion-grid>
