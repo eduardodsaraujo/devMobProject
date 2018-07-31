@@ -35,7 +35,7 @@ $app-direction: ltr;
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #fa6e30,
   light:      #f4f4f4,
   dark:       #222
 );
@@ -44,14 +44,15 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
+$tabs-ios-tab-icon-color-active: #fa6e30;
+$tabs-ios-tab-icon-color: #fff;
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$tabs-md-tab-text-color-active:#fa6e30;
+$tabs-md-tab-icon-color: #fff;
 
 
 
@@ -73,6 +74,9 @@ $text-input-highlight-color-valid:	white !important;
 $text-input-highlight-color-invalid:	red	;
 
 $text-input-placeholder-color:	white !important;	
+$tabs-md-tab-icon-color-active: #fff;
+$tabs-md-tab-icon-color: rgb(221, 221, 221);
+
 
 @import "ionic.theme.default";
 

@@ -14,6 +14,9 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+*{
+}
 .scroll-content{
   padding: 5px !important;
 }
@@ -28,7 +31,7 @@
 }
 
 ion-content{
-  background: white    !important;
+  background: rgb(235, 122, 77)  !important;
 }
 
 .card-content-md {
@@ -42,7 +45,11 @@ navbar{
 }
 
 .toolbar-title{    
-  font-size: 2.3em !important;
+  font-size: 2em !important;
   text-align: center;
   font-weight: bold;
+}
+
+.tabs .tabbar {
+  background-color: rgba(250, 109, 48, 0.047) !important;
 }

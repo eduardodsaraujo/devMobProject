@@ -6,16 +6,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content  no-lines>
+<ion-content no-lines>
   <ion-list>
-    <button ion-item *ngFor="let category of categories | async">
+    <button ion-item *ngFor="let category of categories|async; index as i  " [attr.data-index]="i" (click)="seeProducts(category)">
       <ion-avatar item-start>
         <img [src]="category.img">
       </ion-avatar>
       <ion-avatar item-end>
-        <ion-icon name="ios-arrow-forward-outline" style="font-size: 2em; color: #ccc"></ion-icon>
+        <ion-icon name="ios-arrow-forward-outline" style="font-size: 2em; line-height: 2em;" [ngStyle]="{'color': category.color  }"></ion-icon>
       </ion-avatar>
-      <h2> {{ category.name }} </h2>
+      <h2 [ngStyle]="{'color': category.color  }"> {{ category.name }} </h2>
     </button>
   </ion-list>
 </ion-content>

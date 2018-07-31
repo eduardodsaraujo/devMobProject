@@ -1,0 +1,108 @@
+
+page-products {
+  .scroll-content{
+    padding: 0px !important;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  .content{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  ion-icon{
+    color: white !important;
+    font-size: 2em;
+    padding: 0.5em 0.5em 0em 0.5em;
+    position: fixed;
+    z-index: 1000;
+  }
+  .title {
+    display: flex !important;
+    flex: 1;
+    font-size: 2.3em;
+    color: white;
+    font-weight: bold;
+    align-content: center !important;
+    justify-content: space-around;
+    line-height: 1.5em;
+    margin: 5% 0;
+    padding: 25px 20px 20px 20px;
+    z-index: 100;
+    span{
+      z-index: 100;
+    }
+  }
+
+  ion-col{
+    padding: 10px !important;
+    margin: 0px !important;
+  }
+
+  @keyframes fadeIn {
+    0%{
+      opacity: 0.2;
+    }100%{
+      opacity: 1;
+    }
+  }
+  @keyframes slideLeft {
+    0%{
+      transform: translateX(+100%);
+    }100%{
+      transform: translateX(0);
+    }
+
+  }
+
+
+
+  .ion-card {
+    animation: fadeIn .5s;
+    color:black !important;
+    background: rgba(255, 255, 255, 0.87) !important;
+    margin: 15px;
+    padding: 0px !important;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .card-title{
+      color:  rgb(255, 255, 255);
+      font-size: 1.3em;
+      font-weight: bold;
+      text-align: left;
+      margin: 0px;
+      padding: 0.2em;
+    }
+    .card-description{
+      padding: 0.3em;
+    }
+    z-index: 100;
+
+  }
+  .img-content{
+    text-align: center;
+    border-radius: 10px 0px 0px 10px;
+    img{
+      border-radius: 100%;
+      height: 100px;
+    }
+  }
+  .pink{
+    background: pink !important;
+  }
+  
+  .toolbar-title{    
+    font-size: 1.7em !important;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .price{
+    color: red;
+    text-align: right;
+    font-weight: bold;
+    padding: 10px;
+  }
+}

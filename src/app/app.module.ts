@@ -31,10 +31,13 @@ const config = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: false,
+    }),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
