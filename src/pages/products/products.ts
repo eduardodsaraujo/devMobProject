@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase.provider';
 import { Observable } from 'rxjs/Observable';
 import { HomePage } from '../home/home';
@@ -20,7 +20,9 @@ import { TabsPage } from '../tabs/tabs';
 export class ProductsPage {
   category: any;
   categories: any;
-  products: Observable<any[]>;
+  products: any[];
+  allProducts: any[];
+  @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseProvider: FirebaseProvider) {
     if (this.navParams.get("category") != null) {
@@ -29,11 +31,26 @@ export class ProductsPage {
       });
       this.category = this.navParams.get("category");
       console.log(this.category);
-      this.products = this.firebaseProvider.getAll(`products/${this.category.key}`);
-      console.log(this.products.forEach(p => console.log(p)));
+      this.firebaseProvider.getAll(`products/`).subscribe(products => {
+        this.allProducts = products as any[];
+        console.log(this.allProducts);
+        this.products = this.allProducts.find(products => (products.key === this.category.key));
+        delete this.products["key"];
+        console.log(typeof this.products);
+        console.log(this.products);
+      });
+
     } else {
       this.navCtrl.setRoot(TabsPage);
     }
+  }
+
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    this.category = this.categories[currentIndex];
+    //this.products = this.firebaseProvider.getAll(`products/${this.category.key}`);
+
+    console.log('Current index is', currentIndex);
   }
 
 
@@ -62,7 +79,7 @@ export class ProductsPage {
       this.category = this.categories[0];
     }
     console.log(i);
-    this.products = this.firebaseProvider.getAll(`products/${this.category.key}`);
+    // this.products = this.firebaseProvider.getAll(`products/${this.category.key}`);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductsPage');

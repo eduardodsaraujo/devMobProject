@@ -1,33 +1,35 @@
 <ion-content [style.background-color]="category.color" *ngIf="category">
   <div class="content" [ngStyle]="{'background': category.color  }"></div>
   <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+  <ion-slides (ionSlideWillChange)="slideChanged()">
+    <ion-slide *ngFor="let category of categories">
+      <h1>{{category.name}}</h1>
+      <div class="ion-card" *ngFor="let product of products" [ngStyle]="{'background': category.color  }">
+        <ion-grid>
+          <ion-row>
 
-  <div class="title" (swipe)="changeCategory($event)">
-    <img [src]="category?.img" style="width:1.2em; height: 1.2em;" />
-    <span>{{ category?.name}}</span>
-  </div>
-  <div class="ion-card" *ngFor="let product of products | async" [ngStyle]="{'background': category.color  }">
-    <ion-grid>
-      <ion-row>
+            <ion-col col-5 class="img-content" [ngStyle]="{'background': category.color  }">
 
-        <ion-col col-5 class="img-content" [ngStyle]="{'background': category.color  }">
+              <img [src]="product.img" />
+            </ion-col>
+            <ion-col col-7>
 
-          <img [src]="product.img" />
-        </ion-col>
-        <ion-col col-7>
+              <ion-card-content>
+                <ion-card-title [ngStyle]="{'color': category.color  }">
+                  {{ product.title }}
+                </ion-card-title>
+                <div class="card-description"> {{ product.description }} </div>
+                <div class="price"> R$ {{ product.price }}</div>
+              </ion-card-content>
 
-          <ion-card-content>
-            <ion-card-title [ngStyle]="{'color': category.color  }">
-              {{ product.title }}
-            </ion-card-title>
-            <div class="card-description"> {{ product.description }} </div>
-            <div class="price"> R$ {{ product.price }}</div>
-          </ion-card-content>
+            </ion-col>
 
-        </ion-col>
+          </ion-row>
+        </ion-grid>
 
-      </ion-row>
-    </ion-grid>
+      </div>
+    </ion-slide>
+    yy
+  </ion-slides>
 
-  </div>
 </ion-content>
