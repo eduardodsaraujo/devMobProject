@@ -3,25 +3,33 @@ page-home {
     font-weight: bold !important;
     font-size: 1.2em !important;
   }
-  
+  .scroll-content{
+    padding: 0px !important;
+  }
   .scroll-content, .item-md, .item{
-    background-color: #FFF3E0    ; // black
   }
   .item{
-    border-bottom: 5px dashed white;
+    padding: 5px;
+    border-bottom: 5px solid white;
   }
 
-  .card {
-    background-color: rgba(255, 166, 0, 0.829); // black
-    color:white !important;
+  .item:hover{
+    filter: brightness(110%);
   }
-  .card-title{
-    color: white;
-    font-size: 2em;
-    font-weight: 500;
-    background: rgba(0,0,0,0.7);
-    text-align: center;
-    margin: 0px;
+
+  .item img, .item ion-icon{
+    transition: 0.3s all;
+  }
+
+  .item:hover,   .item:focus, .item:active {
+    img{
+      transform: scale(1.2);
+
+    }
+    ion-icon{
+      transform: scale(1.5);
+
+    }
   }
 
   img{
@@ -29,10 +37,10 @@ page-home {
     height: 5.4em !important;
     width: 5em !important;
   }
-
   .item-inner{
     border: 0px !important;
   }
-
-  
+  ion-list{
+    margin-bottom: 0px !important;
+  }
 }

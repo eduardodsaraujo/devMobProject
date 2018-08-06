@@ -1,35 +1,35 @@
 <ion-content [style.background-color]="category.color" *ngIf="category">
-  <div class="content" [ngStyle]="{'background': category.color  }"></div>
+  <div class="content" [ngStyle]="{'background': category.color  }" (swipe)="changeCategory($event)"></div>
   <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
-  <ion-slides (ionSlideWillChange)="slideChanged()">
-    <ion-slide *ngFor="let category of categories">
-      <h1>{{category.name}}</h1>
-      <div class="ion-card" *ngFor="let product of products" [ngStyle]="{'background': category.color  }">
-        <ion-grid>
-          <ion-row>
 
-            <ion-col col-5 class="img-content" [ngStyle]="{'background': category.color  }">
+  <div class="title" [ngStyle]="{'background': 'rgba(255,255,255,0.92)'  }" (swipe)="changeCategory($event)">
+    <img [src]="category?.img" style="width:1.3em; height: 1.3em;" />
+    <span [ngStyle]="{'color': category.color  }">{{ category?.name}}</span>
+  </div>
+  <div class="ion-card" *ngFor="let product of products | async" [ngStyle]="{'background': category.color  }" (click)="openDetailsProduct(product)">
+    <ion-grid>
+      <ion-row>
 
-              <img [src]="product.img" />
-            </ion-col>
-            <ion-col col-7>
+        <ion-col col-5 class="img-content" [ngStyle]="{'background': category.color  }">
 
-              <ion-card-content>
-                <ion-card-title [ngStyle]="{'color': category.color  }">
-                  {{ product.title }}
-                </ion-card-title>
-                <div class="card-description"> {{ product.description }} </div>
-                <div class="price"> R$ {{ product.price }}</div>
-              </ion-card-content>
+          <img [src]="product.img" />
+        </ion-col>
+        <ion-col col-7>
 
-            </ion-col>
+          <ion-card-content>
+            <ion-card-title [ngStyle]="{'color': category.color  }">
+              {{ product.title }}
+            </ion-card-title>
+            <div class="card-description">
+              {{ product.description }}
+            </div>
+            <div class="price">{{ product.price | currency:'BRL':true }}</div>
+          </ion-card-content>
 
-          </ion-row>
-        </ion-grid>
+        </ion-col>
 
-      </div>
-    </ion-slide>
-    yy
-  </ion-slides>
+      </ion-row>
+    </ion-grid>
 
+  </div>
 </ion-content>

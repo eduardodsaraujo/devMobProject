@@ -3,6 +3,7 @@ import { NavController, UrlSerializer } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase.provider';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../model/user';
+import { NativeTransitionOptions, NativePageTransitions } from '@ionic-native/native-page-transitions';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,9 @@ export class HomePage {
   contact = {} as User;
   colors = [];
 
-  constructor(public navCtrl: NavController, private firebaseProvider: FirebaseProvider) {
+  constructor(public navCtrl: NavController,
+    private firebaseProvider: FirebaseProvider,
+    private nativePageTransitions: NativePageTransitions) {
     this.categories = (this.firebaseProvider.getAll('categories/'));
     // this.contact.email = "casa";
     // this.contact.password = "casa";
@@ -39,6 +42,13 @@ export class HomePage {
   }
 
   seeProducts(category) {
+    let options: NativeTransitionOptions = {
+      duration: 300,
+      androiddelay: 500,
+    };
+
+    this.nativePageTransitions.slide(options);
+
     console.log(category);
     this.navCtrl.push("ProductsPage", { category: category });
   }

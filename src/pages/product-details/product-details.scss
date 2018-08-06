@@ -1,0 +1,93 @@
+page-product-details {
+  ion-icon{
+    color: white !important;
+    font-size: 2em;
+    position: fixed;
+    z-index: 1000;
+    padding: 10px !important;
+  }
+
+  *{
+    padding: 0px !important;
+  }
+  ion-content{
+    color: #fff !important;
+  }
+  .scroll-content{
+    padding: 0px !important;
+  }
+  h2{
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-top: 0px !important;
+  }
+
+  img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    max-height: 17em;
+  }
+  .product-description{
+    margin: 0 0px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;  
+    margin-top: -5px;
+    padding: 12px !important;
+    color: black !important;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 1px 1px 3px rgba(31, 30, 30, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    p{
+      margin: 0px !important;
+      margin-left: 10px !important;
+    }
+  }
+
+  .price{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    text-align: right;
+    font-size: 1.1em;
+    color: red;
+    font-weight: 400;
+    margin-right: 5px;
+  }
+
+  .numProducts{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    color: rgb(95, 94, 94);
+    margin: 10px auto;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    button{
+      font-size: 1.2em;
+      font-weight: bold;
+      border: 3px solid red;
+      background: #fff;
+      padding: 5px 35px !important;
+      margin: 10px;
+      color: red;
+      border-radius: 10px;
+    }
+  }
+
+  .btnBuy{
+      display: flex;
+      flex: 1;
+      width: 100%;
+      justify-content:space-between;
+      font-size: 1.3em;
+      background: #fff;
+      padding: 5px 10px !important;
+      color: white;
+      font-weight: bold;
+      background: red;
+      border: outset 1px white;
+  }
+} 

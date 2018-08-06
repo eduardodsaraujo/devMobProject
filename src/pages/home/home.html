@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="danger">
+  <ion-navbar color="light">
     <ion-title>
       Cardápio
     </ion-title>
@@ -8,14 +8,16 @@
 
 <ion-content no-lines>
   <ion-list>
-    <button ion-item *ngFor="let category of categories|async; index as i  " [attr.data-index]="i" (click)="seeProducts(category)">
+    <button ion-item *ngFor="let category of categories|async; index as i  " [attr.data-index]="i" (click)="seeProducts(category)"
+      [ngStyle]="{'background': category.color  }">
       <ion-avatar item-start>
-        <img [src]="category.img">
+        <img [src]=" category.img ">
       </ion-avatar>
       <ion-avatar item-end>
-        <ion-icon name="ios-arrow-forward-outline" style="font-size: 2em; line-height: 2em;" [ngStyle]="{'color': category.color  }"></ion-icon>
+        <ion-icon name="ios-arrow-forward-outline" style="font-size: 2em; line-height: 2em; " [ngStyle]="{ 'color': '#fff'
+      } "></ion-icon>
       </ion-avatar>
-      <h2 [ngStyle]="{'color': category.color  }"> {{ category.name }} </h2>
+      <h2 [ngStyle]="{ 'color': '#fff' } "> {{ category.name }} </h2>
     </button>
   </ion-list>
 </ion-content>

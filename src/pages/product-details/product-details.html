@@ -1,0 +1,28 @@
+<ion-content padding [ngStyle]="{'background': category.color  }">
+  <div [ngStyle]="{'background': category.color  }">
+    <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+
+    <div class="img-content" [ngStyle]="{'background': category.color  }">
+
+      <img [src]="product.img" />
+    </div>
+    <div class="product-description">
+
+      <h2 [ngStyle]="{'color': category.color  }"> {{ product.title }} </h2>
+      <div>
+        <p>{{ product.description }}</p>
+      </div>
+      <div class="price">{{ product.price | currency:'BRL':true }}</div>
+      <div class="numProducts">
+        <button (click)="decrementNumProducts()" [disabled]="numProducts <= 1" [ngStyle]="{'border-color': category.color, 'color': category.color  }">-</button>
+        {{ numProducts }}
+        <button (click)="incrementNumProducts()" [ngStyle]="{'border-color': category.color, 'color': category.color  }">+</button>
+      </div>
+      <button class="btnBuy" [ngStyle]="{'background': category.color  }" (click)="addItemCart()">
+        <span>Adicionar</span>
+        <span>{{ total | currency:'BRL':true }}</span>
+      </button>
+    </div>
+
+  </div>
+</ion-content>

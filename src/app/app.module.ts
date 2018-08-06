@@ -2,17 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { StatusBar } from '@ionic-native/status-bar';
+import { LOCALE_ID } from '@angular/core';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FirebaseProvider } from '../providers/firebase.provider';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { TabsPage } from '../pages/tabs/tabs';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { CartProvider } from '../providers/cart.provider';
+
+
+
 
 const config = {
   apiKey: "AIzaSyABYh1UjMH1tcXsbeyAvx3kp_Osj1zv5MY",
@@ -22,6 +29,8 @@ const config = {
   storageBucket: "test-d410e.appspot.com",
   messagingSenderId: "905064618049"
 };
+
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
@@ -49,7 +58,10 @@ const config = {
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    FirebaseProvider
+    FirebaseProvider,
+    CartProvider,
+    NativePageTransitions,
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ]
 })
 export class AppModule { }

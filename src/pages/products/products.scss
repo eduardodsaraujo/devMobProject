@@ -1,4 +1,3 @@
-
 page-products {
   .scroll-content{
     padding: 0px !important;
@@ -50,9 +49,9 @@ page-products {
   }
   @keyframes slideLeft {
     0%{
-      transform: translateX(+100%);
+      transform: translateY(+100%);
     }100%{
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
   }
@@ -60,6 +59,7 @@ page-products {
 
 
   .ion-card {
+    animation: slideLeft 0.2s;
     color:black !important;
     background: rgba(255, 255, 255, 0.87) !important;
     margin: 15px;

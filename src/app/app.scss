@@ -31,7 +31,7 @@
 }
 
 ion-content{
-  background: rgb(235, 122, 77)  !important;
+  background: #fa6e30 ;
 }
 
 .card-content-md {
@@ -48,8 +48,15 @@ navbar{
   font-size: 2em !important;
   text-align: center;
   font-weight: bold;
+  color: #f00 !important;
 }
 
 .tabs .tabbar {
-  background-color: rgba(250, 109, 48, 0.047) !important;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+ion-header{
+  border-bottom: 5px solid white !important;
+  border-radius: 20px;
+
 }

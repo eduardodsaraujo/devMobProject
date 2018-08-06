@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title>
+      Carrinho
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="content"></div>
+
+  <div class="ion-card" *ngFor="let item of items">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col col-5 class="img-content">
+
+          <img [src]="item.productItem.img" />
+        </ion-col>
+        <ion-col col-7>
+
+          <ion-card-content>
+            <ion-card-title>
+              {{ item.productItem.title }}
+            </ion-card-title>
+            <div class="price">{{ item.productItem.price | currency:'BRL':true }}</div>
+            <div class="numProducts">
+              <button (click)="decrementNumProducts(item)">-</button>
+              {{ item.quantity }}
+              <button (click)="incrementNumProducts(item)">+</button>
+            </div>
+
+
+          </ion-card-content>
+
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  Total: {{ total }}
+
+</ion-content>
