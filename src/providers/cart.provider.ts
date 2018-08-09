@@ -24,6 +24,10 @@ export class CartProvider {
     this.items = this.items.filter(i => i != item);
   }
 
+  removeAllItems() {
+    this.items = [];
+  }
+
   getItems() {
     return this.items;
   }

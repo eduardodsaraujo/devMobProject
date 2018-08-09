@@ -1,0 +1,21 @@
+page-orders {
+  ion-segment{
+    display: block;
+    position: fixed;
+    margin-top: 10px;
+  }
+
+  ion-segment-button{
+    display: flex;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    color: red !important;
+    padding: 20px !important;
+    text-align: center !important;
+    line-height: 0px !important;
+    border: red solid 1px;
+
+  }
+
+}

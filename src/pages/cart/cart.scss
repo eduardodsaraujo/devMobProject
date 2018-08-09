@@ -1,3 +1,133 @@
 page-cart {
+  .btnBuy{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content:space-between;
+    font-size: 1.4em;
+    background: #fff;
+    padding: 20px 10px !important;
+    color: white;
+    font-weight: bold;
+    background: red;
+    border: outset 1px white;
+    position: fixed;
+    bottom: 50px;
+}
 
+.scroll-content{
+  padding: 0px !important;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.content{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+ion-icon{
+  color: white !important;
+  font-size: 2em;
+  padding: 0.5em 0.5em 0em 0.5em;
+  position: fixed;
+  z-index: 1000;
+}
+
+
+ion-col{
+  padding: 10px !important;
+  margin: 0px !important;
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0.2;
+  }100%{
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  0%{
+    transform: translateY(+100%);
+  }100%{
+    transform: translateY(0);
+  }
+
+}
+
+.ion-card {
+  display: flex;
+  flex: 3;
+  align-items: center;
+  justify-content: space-around;
+  animation: slideLeft 0.2s;
+  color:black !important;
+  background: rgba(255, 255, 255, 1) !important;
+  margin: 10px;
+  padding: 3px ;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .card-title{
+    color:  red;
+    font-size: 1.15em;
+    font-weight: bold;
+    margin: 0px;
+  }
+  ion-card-title{
+    display: block;
+    width: 100%;
+    text-align: left !important;
+  }
+
+  z-index: 100;
+}
+.img-content{
+  text-align: center;
+  border-radius: 10px 0px 0px 10px;
+  img{
+    border-radius: 100%;
+    height: 80px;
+  }
+}
+
+
+
+.price{
+  color: red;
+  text-align: right;
+  font-weight: 500;
+}
+
+  .item{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .numProducts{
+    flex: 1;
+    align-self: center;
+    color: rgb(95, 94, 94);
+    width: 100%;
+    text-align: center;
+    button{
+      padding: 5px 8px;
+      border: 1px solid red;
+      font-size: 1em;
+      background: red;
+      color: #fff;
+      margin: 1px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  }
+
+  
+}
+
+.toast-message {
+  background: red !important;
+  color: white ;
+  font-weight: bold;
 }

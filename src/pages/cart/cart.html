@@ -8,39 +8,56 @@
 
 
 <ion-content>
+
   <div class="content"></div>
 
-  <div class="ion-card" *ngFor="let item of items">
-    <ion-grid>
-      <ion-row>
+  <div class="item" *ngFor="let item of items">
 
-        <ion-col col-5 class="img-content">
+    <div class="ion-card">
 
-          <img [src]="item.productItem.img" />
-        </ion-col>
-        <ion-col col-7>
+      <div class="img-content">
 
-          <ion-card-content>
-            <ion-card-title>
-              {{ item.productItem.title }}
-            </ion-card-title>
-            <div class="price">{{ item.productItem.price | currency:'BRL':true }}</div>
-            <div class="numProducts">
-              <button (click)="decrementNumProducts(item)">-</button>
-              {{ item.quantity }}
-              <button (click)="incrementNumProducts(item)">+</button>
-            </div>
+        <img [src]="item.productItem.img" />
+      </div>
+      <div>
+        <ion-card-title>
+          {{ item.productItem.title }}
+        </ion-card-title>
+        <div class="price">{{ item.productItem.price | currency:'BRL':true }}</div>
 
+      </div>
 
-          </ion-card-content>
+    </div>
 
-        </ion-col>
+    <div class="numProducts">
+      <button (click)="decrementNumProducts(item)">-</button>
+      {{ item.quantity }}
+      <button (click)="incrementNumProducts(item)">+</button>
+    </div>
 
-      </ion-row>
-    </ion-grid>
 
   </div>
 
-  Total: {{ total }}
+  <ion-list *ngIf="total != 0">
+    <ion-item>
+      <ion-label>Mesa</ion-label>
+      <ion-select [(ngModel)]="table">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <button class="btnBuy" (click)="addOrder()" *ngIf="total != 0" [disabled]="!table">
+    <span>Finalizar Pedido</span>
+    <span>{{ total | currency:'BRL':true }}</span>
+  </button>
+  <button class="btnBuy" *ngIf="total == 0" style="justify-content: center;">
+    <span>O Carrinho está vazio...</span>
+  </button>
 
 </ion-content>

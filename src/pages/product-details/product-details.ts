@@ -3,12 +3,6 @@ import { ViewController, IonicPage, NavController, NavParams, App } from 'ionic-
 import { CartProvider } from '../../providers/cart.provider';
 import { CartItem } from '../../model/cart-item';
 
-/**
- * Generated class for the ProductDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -24,7 +18,7 @@ export class ProductDetailsPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private cartProvider: CartProvider,
-    private app: App
+    private app: App,
   ) {
     this.category = this.navParams.get("category");
     this.product = (this.navParams.get("product"));
@@ -56,9 +50,8 @@ export class ProductDetailsPage {
     let itemCart = new CartItem(this.product, this.numProducts);
     this.cartProvider.addItem(itemCart);
     console.log(this.cartProvider.getItems());
-    this.navCtrl.pop();
-    //this.navCtrl.setRoot("CartPage");
-    //this.app.getRootNav().getActiveChildNav().select(2);
+    this.app.getRootNav().getActiveChildNav().select(2);
+    this.navCtrl.push("CartPage");
 
   }
 

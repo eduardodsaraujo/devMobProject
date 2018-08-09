@@ -22,11 +22,11 @@ export class FirebaseProvider {
       });
   }
 
-  save(path: string, contact: any) {
+  save(path: string, contact: any, key?: string) {
     return new Promise((resolve, reject) => {
-      if (contact.key) {
+      if (key) {
         this.db.list(path)
-          .update(contact.key, contact)
+          .update(key, contact)
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {

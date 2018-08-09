@@ -5,4 +5,5 @@ export class CartItem {
   value(): number {
     return this.productItem.price * this.quantity;
   }
+
 }

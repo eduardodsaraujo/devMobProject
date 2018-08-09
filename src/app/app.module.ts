@@ -17,6 +17,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { CartProvider } from '../providers/cart.provider';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -46,7 +47,6 @@ registerLocaleData(localePt, 'pt-BR');
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [

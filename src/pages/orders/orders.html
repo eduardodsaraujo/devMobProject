@@ -1,0 +1,34 @@
+<!--
+  Generated template for the OrdersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title>orders</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-segment [(ngModel)]="tabled" color="primary" (ionChange)="segmentChanged($event)">
+    <ion-segment-button *ngFor="let table of tables" [value]="table">
+      <span>{{ table }}</span>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="tabled" style="margin: 20px;">
+    <div *ngFor="let table of tables">
+      <ion-list *ngSwitchCase="table">
+        <div *ngFor="let entry of items| keys">
+          Pedido #
+          <div *ngFor="let entry2 of entry.value| keys">
+            {{entry2.value.title}} - {{entry2.value.price | currency:'BRL':true }} x {{entry2.value.quantity}}
+          </div>
+          <hr>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
