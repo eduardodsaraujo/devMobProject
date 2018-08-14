@@ -21,15 +21,34 @@ export class HomePage {
     // this.contact.email = "casa";
     // this.contact.password = "casa";
     // let product1 = {
-    //   title: 'Suco de Manga', img: "https://assets.xtechcommerce.com/uploads/images/medium/49595da362d88b11ad2f7302313633d2.jpg",
-    //   description: 'Suco de manga de 300ml', price: "3,20"
+    //   title: 'Sundae Ovomaltine', img: "http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BK_Web_SUNDAE_500x540.png",
+    //   description: 'Uma deliciosa sobremesa nos sabores creme, chocolate ou misto, servida com uma calda supercremosa e crocante de Ovomaltine.',
+    //   price: "7.0"
     // }
 
-    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product1);
-    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product1);
-    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product1);
-    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product1);
+    // let product4 = {
+    //   title: 'Shake Oreo Morango', img: "http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/Desktop-500x540px-05.png",
+    //   description: 'Já pensou em combinar o famoso biscoito Oreo, com o sorvete de creme e a calda de morango? Não precisa imaginar, pode provar! ',
+    //   price: "10.0"
+    // }
 
+    // let product3 = {
+    //   title: 'Casquinhas Recheadas', img: "http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/Casquinha-Choconut-500x540px_0.png",
+    //   description: 'Uma sobremesa cremosa, em uma casquinha crocante, com saborosos recheios: chocolate, doce de leite, Chocrocante Ovomaltine, ou Choconut. Para você se deliciar do começo ao fim. ',
+    //   price: "6.0"
+    // }
+
+    // let product2 = {
+    //   title: 'Shake Doce de Leite', img: "http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BK_Web_SHAKEDOCEDELEITE_500x540px.png",
+    //   description: 'O Shake de Doce de Leite traz um sabor único, bem cremoso e do jeitinho que você adora.',
+    //   price: "9.0"
+    // }
+
+
+    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product1);
+    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product2);
+    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product3);
+    // this.firebaseProvider.save("/products/-LIcTxr9aQHStxtNHPSD", product4);
   }
 
   getRandomColor() {
@@ -42,12 +61,6 @@ export class HomePage {
   }
 
   seeProducts(category) {
-    let options: NativeTransitionOptions = {
-      duration: 300,
-      androiddelay: 500,
-    };
-
-    this.nativePageTransitions.slide(options);
 
     console.log(category);
     this.navCtrl.push("ProductsPage", { category: category });

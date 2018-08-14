@@ -1,6 +1,6 @@
-page-login {
+page-register {
   text-align: center !important;
-
+  
   ion-label {
     color: white!important;
   }
@@ -9,13 +9,12 @@ page-login {
     color:white !important;
     border:5px solid white;
     font-weight: bold;
-    img{
-      filter: brightness(110%);
-    }
   }
 
   ion-list{
     flex: 1;
+    align-content: center;
+    justify-content: center;
   }
 
   ion-item{
@@ -24,45 +23,47 @@ page-login {
   }
 
   h1{
-    font-size: 3.5em;
+    font-size: 2.5em;
     margin-top: 0px !important;
+    margin-bottom: 1.5em !important;
     color: white(236, 0, 0, 0.699);
     text-shadow: 2px 2px 2px grey;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+    font-weight: bold;
   }
 
   .scroll-content{
     margin-top: 20%;
     overflow: hidden;
   }
+  
   ion-item{
     background: transparent !important;
   }
 
+  .btnRegister{
+    margin-top: -10px;
+    border: 2px solid white;
+    background: rgba(236, 0, 0, 0.932) !important;
+    color: white;
+    font-weight: bold;
+  }
+  .btnBack{
+    margin-top: 10px;
+    background: white !important;
+    color: #f6463e;
+    font-weight: bold;
+  }
 
-.btnLogin{
-  background: white !important;
-  color: #f6463e;
-  font-weight: bold;
-}
+  ion-label{
+    width: auto !important;
+    color: white !important;
+    font-weight: bold;  
+  }
 
-.btnRegister{
-  margin-top: 10px;
-  border: 2px solid white;
-  background: rgba(236, 0, 0, 0.932) !important;
-  color: white;
-  font-weight: bold;
-}
-ion-label{
-  width: auto !important;
-  color: white !important;
-  font-weight: bold;  
-}
-
-ion-input, ion-select{
-  color: white !important;
-}
+  ion-input, ion-select{
+    color: white !important;
+  }
 
 }
 
@@ -73,3 +74,6 @@ ion-input, ion-select{
  
 }
 }
+
+
+

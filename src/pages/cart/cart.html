@@ -34,30 +34,23 @@
       {{ item.quantity }}
       <button (click)="incrementNumProducts(item)">+</button>
     </div>
-
-
   </div>
 
   <ion-list *ngIf="total != 0">
     <ion-item>
       <ion-label>Mesa</ion-label>
-      <ion-select [(ngModel)]="table">
-        <ion-option value="1">1</ion-option>
-        <ion-option value="2">2</ion-option>
-        <ion-option value="3">3</ion-option>
-        <ion-option value="4">4</ion-option>
-        <ion-option value="5">5</ion-option>
+      <ion-select [(ngModel)]="table" cancelText="Cancelar">
+        <ion-option *ngFor="let tableNum of tables" [value]="tableNum">{{tableNum}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
-
 
   <button class="btnBuy" (click)="addOrder()" *ngIf="total != 0" [disabled]="!table">
     <span>Finalizar Pedido</span>
     <span>{{ total | currency:'BRL':true }}</span>
   </button>
-  <button class="btnBuy" *ngIf="total == 0" style="justify-content: center;">
+  <div class="cartEmpty" *ngIf="total == 0" style="justify-content: center;">
     <span>O Carrinho está vazio...</span>
-  </button>
+  </div>
 
 </ion-content>

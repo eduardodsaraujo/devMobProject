@@ -1,0 +1,38 @@
+<ion-grid style="height: 100%">
+
+  <ion-row justify-content-center align-items-center style="height: 100%">
+
+    <ion-list padding>
+      <h1>Registrar Usuário</h1>
+      <ion-item padding>
+        <ion-label class="text-input">Name</ion-label>
+        <ion-input type="text" [(ngModel)]="user.name" round></ion-input>
+      </ion-item>
+      <ion-item padding>
+        <ion-label class="text-input">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email" round></ion-input>
+      </ion-item>
+      <ion-item padding>
+        <ion-label class="text-input">Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-item>
+          <ion-label>Tipo de Usuário</ion-label>
+          <ion-select [(ngModel)]="user.kind" cancelText="Cancelar">
+            <ion-option value="attendant">Atendente</ion-option>
+            <ion-option value="cooker">Cozinheiro</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <br>
+      <br>
+
+      <button class="btnRegister" ion-button (click)="register()" round block>Registre-se</button>
+      <button class="btnBack" (click)="back()" ion-button round block>Voltar</button>
+
+    </ion-list>
+  </ion-row>
+</ion-grid>

@@ -15,6 +15,15 @@ export class FirebaseProvider {
       })
   }
 
+  getAllCount(path: string) {
+    return this.db.list(path, ref => ref)
+      .snapshotChanges()
+      .map(changes => {
+        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+      }).subscribe(objects => (objects as any[]).length);
+  }
+
+
   get(path: string, key: string) {
     return this.db.object(path + key).snapshotChanges()
       .map(c => {
@@ -26,7 +35,7 @@ export class FirebaseProvider {
     return new Promise((resolve, reject) => {
       if (key) {
         this.db.list(path)
-          .update(key, contact)
+          .set(key, contact)
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {

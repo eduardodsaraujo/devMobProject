@@ -15,8 +15,6 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-*{
-}
 .scroll-content{
   padding: 5px !important;
 }
@@ -58,5 +56,158 @@ navbar{
 ion-header{
   border-bottom: 5px solid white !important;
   border-radius: 20px;
-
 }
+
+.splash{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  .title-splash{
+    animation: tracking-in-expand .5s both;
+    animation-delay: 1s;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: block;
+    width: 100%;
+    font-size: 4em;
+    color: rgba(236, 0, 0, 0.699);
+    text-shadow: 2px 2px 2px grey;
+    text-align: center;
+    text-shadow: 5px 5px 5px grey;
+  }
+  img{
+    margin-top: 5%;
+    width: 25%;
+    max-width: 300px;
+    transition: 0.2s all;
+  }
+}
+
+.pulse {
+  opacity: 0;
+  animation-delay: 2s;
+  border-radius: 50%;
+  background: #cc2c2c;
+  box-shadow: 0 0 0 rgba(247, 22, 22, 0.4);
+  animation: fadeIn 1s both 1s, pulse 1s infinite  ;
+}
+.pulse:hover {
+  animation: none;
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+            transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+            transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes flip-scale-2-hor-top {
+  0% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+  }
+  50% {
+    -webkit-transform: translateY(-50%) rotateX(-90deg) scale(2);
+            transform: translateY(-50%) rotateX(-90deg) scale(2);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+  }
+  100% {
+    -webkit-transform: translateY(-100%) rotateX(-180deg) scale(1);
+            transform: translateY(-100%) rotateX(-180deg) scale(1);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(247, 22, 22, 0.4);
+    box-shadow: 0 0 0 0 rgba(247, 22, 22, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(247, 22, 22, 0.4);
+      box-shadow: 0 0 0 10px rgba(247, 22, 22, 0.4);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(247, 22, 22, 0.4);
+      box-shadow: 0 0 0 0 rgba(247, 22, 22, 0.4);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

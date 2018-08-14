@@ -4,12 +4,6 @@ import { CartProvider } from '../../providers/cart.provider';
 import { CartItem } from '../../model/cart-item';
 import { FirebaseProvider } from '../../providers/firebase.provider';
 
-/**
- * Generated class for the CartPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,6 +15,7 @@ export class CartPage {
   items: CartItem[] = [];
   total: number = 0;
   table: number = 0;
+  tables: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -63,20 +58,30 @@ export class CartPage {
       console.log("itemToSave");
       console.log(itemToSave);
       itemsToSave.push(itemToSave);
-    })
-    this.firebaseProvider.save("orders/" + this.table.toString(), itemsToSave);
-    this.cartProvider.removeAllItems();
-    this.items = [];
-    this.updateTotal();
-    this.toastCtrl.create({
-      message: 'Pedido Realizado com sucesso.',
-      duration: 3000,
-      position: 'bottom',
-      cssClass: "toast-success"
-    }).present();
+    });
+    let click = true;
+    let uri = "orders/" + this.table.toString();
+    var count = 0;
+    let subscription = this.firebaseProvider.getAll(uri).subscribe(orders => {
+      if (click) {
+        count = (orders as any[]).length++;
+        count += this.table * 100;
+        this.firebaseProvider.save("orders/" + this.table.toString(), itemsToSave, count.toString());
+        this.cartProvider.removeAllItems();
+        this.items = [];
+        this.updateTotal();
+        this.toastCtrl.create({
+          message: 'Pedido nº ' + count + ' realizado com sucesso. ',
+          duration: 3000,
+          position: 'bottom',
+          cssClass: "toast-success"
+        }).present();
+        this.table = 0;
 
-    this.table = 0;
+      }
+      click = false;
 
+    });
   }
 
 }

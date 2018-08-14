@@ -44,16 +44,12 @@ export class ProductsPage {
   openDetailsProduct(product: any) {
     let options: NativeTransitionOptions = {
       direction: 'up',
-      duration: 500,
-      slowdownfactor: 3,
+      duration: 300,
       slidePixels: 20,
-      iosdelay: 100,
-      androiddelay: 150,
       fixedPixelsTop: 0,
       fixedPixelsBottom: 60
     };
 
-    let profileModal = this.modalCtrl.create("ProductDetailsPage", { product, 'category': this.category });
     //profileModal.present();
 
     this.navCtrl.push("ProductDetailsPage", { product, 'category': this.category });

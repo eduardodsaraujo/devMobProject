@@ -1,6 +1,6 @@
 <ion-content [style.background-color]="category.color" *ngIf="category">
   <div class="content" [ngStyle]="{'background': category.color  }" (swipe)="changeCategory($event)"></div>
-  <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+  <ion-icon name="md-arrow-dropdown-circle" (click)="back()" [ngStyle]="{'text-shadow': '2px 2px 5px ' + category.color }"></ion-icon>
 
   <div class="title" [ngStyle]="{'background': 'rgba(255,255,255,0.92)'  }" (swipe)="changeCategory($event)">
     <img [src]="category?.img" style="width:1.3em; height: 1.3em;" />
@@ -21,7 +21,7 @@
               {{ product.title }}
             </ion-card-title>
             <div class="card-description">
-              {{ product.description }}
+              {{ product.description | truncate }}
             </div>
             <div class="price">{{ product.price | currency:'BRL':true }}</div>
           </ion-card-content>

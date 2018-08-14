@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Push } from "@ionic-native/push";
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -60,6 +61,7 @@ registerLocaleData(localePt, 'pt-BR');
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     FirebaseProvider,
     CartProvider,
+    Push,
     NativePageTransitions,
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ]

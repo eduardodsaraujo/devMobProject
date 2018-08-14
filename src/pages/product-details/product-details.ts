@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { ViewController, IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { ViewController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartProvider } from '../../providers/cart.provider';
 import { CartItem } from '../../model/cart-item';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -15,19 +16,16 @@ export class ProductDetailsPage {
   numProducts: number = 1;
   total: number = 1;
 
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private cartProvider: CartProvider,
-    private app: App,
+
   ) {
     this.category = this.navParams.get("category");
     this.product = (this.navParams.get("product"));
     this.total = this.total * this.product.price;
     console.log(this.product);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductDetailsPage');
   }
 
   decrementNumProducts() {
@@ -50,9 +48,9 @@ export class ProductDetailsPage {
     let itemCart = new CartItem(this.product, this.numProducts);
     this.cartProvider.addItem(itemCart);
     console.log(this.cartProvider.getItems());
-    this.app.getRootNav().getActiveChildNav().select(2);
-    this.navCtrl.push("CartPage");
-
+    this.navCtrl.pop();
+    this.navCtrl.parent.select(1);
+    this.navCtrl.pop();
   }
 
 }

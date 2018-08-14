@@ -15,6 +15,16 @@ page-cart {
     bottom: 50px;
 }
 
+.cartEmpty{
+  margin-top: 5px !important;
+  padding: 10px;
+  margin-left: auto;
+  text-align: center;
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
 .scroll-content{
   padding: 0px !important;
   border-top-left-radius: 0px;
@@ -27,6 +37,7 @@ page-cart {
   height: 100%;
   z-index: -1;
 }
+
 ion-icon{
   color: white !important;
   font-size: 2em;
@@ -81,8 +92,15 @@ ion-col{
     text-align: left !important;
   }
 
+
   z-index: 100;
 }
+
+.radio-icon.radio-checked{
+  border-color: red !important;
+}
+
+
 .img-content{
   text-align: center;
   border-radius: 10px 0px 0px 10px;

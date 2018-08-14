@@ -1,6 +1,6 @@
 <ion-content padding [ngStyle]="{'background': category.color  }">
   <div [ngStyle]="{'background': category.color  }">
-    <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+    <ion-icon name="arrow-round-back" (click)="back()" [ngStyle]="{'text-shadow': '2px 2px 5px ' + category.color }"></ion-icon>
 
     <div class="img-content" [ngStyle]="{'background': category.color  }">
 

@@ -2,22 +2,24 @@
 
   <ion-row justify-content-center align-items-center style="height: 100%">
 
-    <ion-list style="flex:1" padding>
-      <h1>Login</h1>
-
-      <ion-item>
-        <ion-label floating>Email</ion-label>
+    <ion-list padding>
+      <img src="assets/imgs/hamburger.png">
+      <h1>Mr.Burger</h1>
+      <ion-item padding>
+        <ion-label floating class="text-input">Email</ion-label>
         <ion-input type="email" [(ngModel)]="user.email" round></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label floating>Senha</ion-label>
+      <ion-item padding>
+        <ion-label floating class="text-input">Senha</ion-label>
         <ion-input type="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
       <br>
       <br>
-      <br>
-      <button ion-button color="danger" (click)="login(user)" round block>Entrar</button>
+
+      <button class="btnLogin" color="secondary" ion-button (click)="login(user)" round block>Entrar</button>
+
+      <button class="btnRegister" ion-button (click)="register()" round block>Registre-se</button>
 
     </ion-list>
   </ion-row>

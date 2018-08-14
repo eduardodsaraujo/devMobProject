@@ -6,6 +6,8 @@ import { ToastController } from 'ionic-angular';
 
 import { User } from '../../model/user';
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
+import { FirebaseProvider } from '../../providers/firebase.provider';
 /**
  * Generated class for the LoginPage page.
  *
@@ -24,7 +26,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private angularAut: AngularFireAuth,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    private firebaseProvider: FirebaseProvider) {
   }
 
 
@@ -34,12 +37,19 @@ export class LoginPage {
         this.angularAut.auth.
           signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.toastCtrl.create({
-          message: 'Indo para Home e Logando',
-          duration: 3000,
-          position: 'bottom'
-        }).present();
-        this.navCtrl.setRoot(HomePage);
+        this.firebaseProvider.getAll("users").subscribe(users => {
+          let allUsers = users as User[];
+          this.user = allUsers.find(u => u.email.toLowerCase() == this.user.email);
+          this.toastCtrl.create({
+            message: 'Bem vindo ' + this.user.name,
+            duration: 3000,
+            position: 'bottom'
+          }).present();
+          if (this.user.kind.toLowerCase() == "cooker")
+            this.navCtrl.setRoot("OrdersPage");
+          else
+            this.navCtrl.setRoot(TabsPage);
+        })
       }
     } catch (resultado) {
       this.toastCtrl.create({
@@ -51,4 +61,9 @@ export class LoginPage {
     }
   }
 
+  register() {
+    this.navCtrl.push("RegisterPage");
+  }
+
 }
+
