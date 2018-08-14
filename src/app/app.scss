@@ -69,7 +69,7 @@ ion-header{
   justify-content: center;
   background: white;
   .title-splash{
-    animation: tracking-in-expand .5s both;
+    animation: bounce-in-top 1.1s both;
     animation-delay: 1s;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: block;
@@ -78,7 +78,6 @@ ion-header{
     color: rgba(236, 0, 0, 0.699);
     text-shadow: 2px 2px 2px grey;
     text-align: center;
-    text-shadow: 5px 5px 5px grey;
   }
   img{
     margin-top: 5%;

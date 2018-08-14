@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase.provider';
 import { CartItem } from '../../model/cart-item';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the OrdersPage page.
@@ -18,12 +19,19 @@ import { CartItem } from '../../model/cart-item';
 export class OrdersPage {
 
   tables: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  tabled: number = 1;
+  tableSelected: number = 1;
   items = [];
   itemsReady = [];
-
+  canChangeOrder = false;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private firebaseProvider: FirebaseProvider) {
+    console.log(navParams.data);
+    if (navParams.data.kind != null) {
+      if (this.navParams.data.kind == "cooker") {
+        this.canChangeOrder = true;
+      }
+    }
+    console.log("Can change Order " + this.canChangeOrder);
 
     this.firebaseProvider.getAll("orders/" + '1').subscribe(orders => {
       this.items = orders as any[];
@@ -41,14 +49,14 @@ export class OrdersPage {
   }
 
   segmentChanged(e) {
-    console.log('this.tabled');
-    console.log(this.tabled);
+    console.log('TableSelected');
+    console.log(this.tableSelected);
 
-    this.firebaseProvider.getAll("orders/" + this.tabled).subscribe(orders => {
+    this.firebaseProvider.getAll("orders/" + this.tableSelected).subscribe(orders => {
       this.items = orders as any[];
       this.items = this.items.reverse().slice(0, 5);
     });
-    this.firebaseProvider.getAll("ordersReady/" + this.tabled).subscribe(orders => {
+    this.firebaseProvider.getAll("ordersReady/" + this.tableSelected).subscribe(orders => {
       this.itemsReady = orders as any[];
       this.items.forEach(item => {
         if (this.itemsReady.find(itemReady => item.key == itemReady.key) != null) {
@@ -65,7 +73,7 @@ export class OrdersPage {
   }
 
   ionViewWillEnter() {
-    this.tabled = 1;
+    this.tableSelected = 1;
     this.firebaseProvider.getAll("orders/" + '1').subscribe(orders => {
       this.items = orders as any[];
       this.items = this.items.reverse().slice(0, 3);
@@ -81,8 +89,8 @@ export class OrdersPage {
   }
 
   readyOrder(order: any) {
-    console.log("clicou na oferta");
-    this.firebaseProvider.save("ordersReady/" + this.tabled, order, order.key);
+    console.log("Oferta Pronta");
+    this.firebaseProvider.save("ordersReady/" + this.tableSelected, order, order.key);
 
   }
 

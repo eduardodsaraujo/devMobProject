@@ -2,9 +2,25 @@ page-orders {
   ion-segment{
     display: block;
     position: fixed;
-    margin-top: 10px;
+    margin-top: 40px;
   }
-
+  .top-offer{
+    display: flex;
+    flex: 1;
+    align-content: center;
+    justify-content: space-between;
+    button{
+      width: auto !important;
+      margin-left: 0 !important;
+      background: white !important;
+      color: green;
+    }
+  }
+  .changeOfferIcon{
+    z-index: 100000;
+    text-align: right;
+    right: 0;
+  }
   ion-segment-button{
     display: flex;
     flex: 1;

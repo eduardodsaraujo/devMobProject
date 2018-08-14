@@ -4,18 +4,26 @@ page-login {
   ion-label {
     color: white!important;
   }
-  ion-grid{
+  .ion-grid{
+    padding: 30px;
     background:  rgb(184, 0, 0) ;
     color:white !important;
-    border:5px solid white;
+    border: 0.1px solid white;
     font-weight: bold;
+    text-align: center;
     img{
+      width: 120px;
+      align-self: center;
       filter: brightness(110%);
     }
   }
-
   ion-list{
+    display: flex;
+    flex-direction: column; 
     flex: 1;
+    align-content: center;
+    justify-content: flex-start;    
+    text-align: center;
   }
 
   ion-item{
@@ -24,7 +32,7 @@ page-login {
   }
 
   h1{
-    font-size: 3.5em;
+    font-size: 3em;
     margin-top: 0px !important;
     color: white(236, 0, 0, 0.699);
     text-shadow: 2px 2px 2px grey;

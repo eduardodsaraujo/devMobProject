@@ -46,7 +46,7 @@ export class LoginPage {
             position: 'bottom'
           }).present();
           if (this.user.kind.toLowerCase() == "cooker")
-            this.navCtrl.setRoot("OrdersPage");
+            this.navCtrl.setRoot("OrdersPage", this.user);
           else
             this.navCtrl.setRoot(TabsPage);
         })

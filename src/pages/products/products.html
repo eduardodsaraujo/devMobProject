@@ -6,7 +6,7 @@
     <img [src]="category?.img" style="width:1.3em; height: 1.3em;" />
     <span [ngStyle]="{'color': category.color  }">{{ category?.name}}</span>
   </div>
-  <div class="ion-card" *ngFor="let product of products | async" [ngStyle]="{'background': category.color  }" (click)="openDetailsProduct(product)">
+  <div class="ion-card" tappable *ngFor="let product of products | async" [ngStyle]="{'background': category.color  }" (click)="openDetailsProduct(product)">
     <ion-grid>
       <ion-row>
 

@@ -8,7 +8,7 @@
 
 <ion-content no-lines>
   <ion-list>
-    <button ion-item *ngFor="let category of categories|async; index as i  " [attr.data-index]="i" (click)="seeProducts(category)"
+    <button ion-item tappable *ngFor="let category of categories|async; index as i  " [attr.data-index]="i" (click)="seeProducts(category)"
       [ngStyle]="{'background': category.color  }">
       <ion-avatar item-start>
         <img [src]=" category.img ">

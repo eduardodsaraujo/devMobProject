@@ -6,19 +6,24 @@
 
 
 <ion-content padding>
-  <ion-segment [(ngModel)]="tabled" color="primary" (ionChange)="segmentChanged($event)">
+  <ion-segment [(ngModel)]="tableSelected" color="primary" (ionChange)="segmentChanged($event)">
     <ion-segment-button *ngFor="let table of tables" [value]="table">
       <span>{{ table }}</span>
     </ion-segment-button>
   </ion-segment>
 
-  <div [ngSwitch]="tabled">
+  <div [ngSwitch]="tableSelected">
     <div *ngFor="let table of tables">
       <ion-list *ngSwitchCase="table" style="margin-left: 50px;">
         <div *ngFor="let entry of items| keys">
           <div class="order" [class.order-done]="entry.value.ready == 1">
             <span class="done" *ngIf="entry.value.ready == 1">PRONTO</span>
-            <span class="order-title">Pedido {{entry.value.key}}</span>
+            <div class="top-offer">
+              <span class="order-title">Pedido {{entry.value.key}}</span>
+              <button *ngIf="entry.value.ready != 1 && canChangeOrder==true" ion-button icon-only class="changeOfferIcon" (click)="readyOrder(entry.value)">
+                <ion-icon name="md-checkmark-circle"></ion-icon>
+              </button>
+            </div>
             <hr>
             <div *ngFor="let entry2 of entry.value| keys">
               <div class="order-product" *ngIf="entry2.value.title">
