@@ -23,10 +23,17 @@ page-product-details {
     margin-top: 0px !important;
   }
 
+  .img-content{
+    text-align: center;
+  }
+  
   img{
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     width: 100%;
+    max-width: 500px;
+    margin-right: auto !important;
+    margin-left: auto !important;
   }
   .product-description{
     margin: 0 0px;
